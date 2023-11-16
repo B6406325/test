@@ -14,7 +14,6 @@ export default function About() {
   return (
     <>
         <h1>About</h1>
-        {/* <div>{location.state}</div> */}
       <form onSubmit={handleSubmit}>
         <button type="submit">Home</button>
       </form>
