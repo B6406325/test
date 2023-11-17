@@ -1,4 +1,4 @@
-import './Register.css'
+import './register.css'
 import { ConfigProvider , Button , Input} from 'antd';
 
 export default function Register(){
