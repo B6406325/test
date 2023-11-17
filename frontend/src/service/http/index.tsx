@@ -45,4 +45,5 @@ async function ListUsers(data: MemberInterface) {
 
 export{
     CreateMember,
+    ListUsers,
 }

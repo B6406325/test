@@ -14,7 +14,6 @@ func main() {
 	r.Use(CORSMiddleware())
 	r.POST("/member", controller.CreateMember)
 	r.GET("/member/:username/:password", controller.GetMember)
-
 	r.Run("localhost: " + PORT)
 }
 
