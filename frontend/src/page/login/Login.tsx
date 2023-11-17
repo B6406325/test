@@ -24,10 +24,10 @@ export default function Login(){
                     <Input style={{width:670,height:69,fontSize:25,fontFamily:'Mitr'}} placeholder='อีเมล'></Input>
                 </div>
                 <div className='input-password'>
-                    <Input style={{width:670,height:69,fontSize:25,fontFamily:'Mitr'}} placeholder='รหัสผ่าน'></Input>
+                    <Input style={{width:670,height:69,fontSize:25,fontFamily:'Mitr'}} placeholder='รหัสผ่าน' type='password'></Input>
                 </div>
                 <div className='reg-text'> ยังไม่มีบัญชีผู้ใช้งาน?
-                    <Link to='register'>
+                    <Link to='register' style={{textDecoration: 'none'}}>
                         <div className='reg-link'>สร้างบัญชีผู้ใช้งาน</div>
                     </Link>
                     <div className='login-button'>
