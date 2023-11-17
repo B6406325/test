@@ -4,23 +4,24 @@ import { ConfigProvider , Button , Input, Form , message} from 'antd';
 import { MemberInterface } from '../../interface/Idata';
 import { ListUsers } from '../../service/http';
 
+
 export default function Login(){
     const navigate = useNavigate();
     const onFinish = async (values: MemberInterface) => {
         let res = await ListUsers(values);
-        if (res.message==="Email Not found") {
+        if (res.message==="ไม่พบอีเมลดังกล่าว") {
             message.error("Email not found. Please check your credentials.");
         } else if (res.message==="invalid password") {
-            message.error("Invalid password. Please try again.");
+            message.error("รหัสผ่านผิด โปรดลองอีกครั้ง");
         } else if (res.message === "Status admin"){
-            message.success("Welcome Admin!!");
+            message.success("สวัสดี แอดมิน");
             setTimeout(function () {
               navigate("/admin");
           }, 2000);
         }
         else {
             if (res.status) {
-                message.success("Welcome!");
+                message.success("ยินดีต้อนรับ");
                 setTimeout(function () {
                   navigate("/content");
               }, 2000);
