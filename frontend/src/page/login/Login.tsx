@@ -20,15 +20,19 @@ export default function Login(){
             }}>
             <div className='body-login'>
                 <div className='body-login-text'>เข้าสู่ระบบ</div>
-                <div className='input-email'><Input style={{width:670,height:69,fontSize:25,fontFamily:'Mitr'}} placeholder='อีเมล'></Input></div>
-                <div className='input-password'><Input style={{width:670,height:69,fontSize:25,fontFamily:'Mitr'}} placeholder='รหัสผ่าน'></Input></div>
+                <div className='input-email'>
+                    <Input style={{width:670,height:69,fontSize:25,fontFamily:'Mitr'}} placeholder='อีเมล'></Input>
+                </div>
+                <div className='input-password'>
+                    <Input style={{width:670,height:69,fontSize:25,fontFamily:'Mitr'}} placeholder='รหัสผ่าน'></Input>
+                </div>
                 <div className='reg-text'> ยังไม่มีบัญชีผู้ใช้งาน?
                     <Link to='register'>
                         <div className='reg-link'>สร้างบัญชีผู้ใช้งาน</div>
                     </Link>
-                <div className='login-button'>
-                    <Button style={{fontSize: 25,width: 200,height:50,fontFamily:'Mitr'}} type='primary'>เข้าสู่ระบบ</Button>
-                </div>
+                    <div className='login-button'>
+                        <Button style={{fontSize: 25,width: 200,height:50,fontFamily:'Mitr'}} type='primary'>เข้าสู่ระบบ</Button>
+                    </div>
                 </div>
             </div>
             </ConfigProvider>

@@ -19,11 +19,21 @@ export default function Register(){
             }}>
             <div className='body-reg'>
                 <div className='body-reg-text'>สร้างบัญชีผู้ใช้งาน</div>
-                <div className='reg-username'><Input style={{width:670,height:53,fontSize:25,fontFamily:'Mitr'}} placeholder='ชื่อผู้ใช้งาน'></Input></div>
-                <div className='reg-email'><Input style={{width:670,height:53,fontSize:25,fontFamily:'Mitr'}} placeholder='อีเมล'></Input></div>
-                <div className='reg-pass'><Input style={{width:670,height:53,fontSize:25,fontFamily:'Mitr'}} placeholder='รหัสผ่าน'></Input></div>
-                <div className='reg-password'><Input style={{width:670,height:53,fontSize:25,fontFamily:'Mitr'}} placeholder='ยืนยันรหัสผ่าน'></Input></div>
-                <div className='reg-button'><Button style={{fontSize: 25,width: 200,height:50,fontFamily:'Mitr'}} type='primary'>สร้างบัญชี</Button></div>
+                <div className='reg-username'>
+                    <Input style={{width:670,height:53,fontSize:25,fontFamily:'Mitr'}} placeholder='ชื่อผู้ใช้งาน'></Input>
+                </div>
+                <div className='reg-email'>
+                    <Input style={{width:670,height:53,fontSize:25,fontFamily:'Mitr'}} placeholder='อีเมล'></Input>
+                </div>
+                <div className='reg-pass'>
+                    <Input style={{width:670,height:53,fontSize:25,fontFamily:'Mitr'}} placeholder='รหัสผ่าน'></Input>
+                </div>
+                <div className='reg-password'>
+                    <Input style={{width:670,height:53,fontSize:25,fontFamily:'Mitr'}} placeholder='ยืนยันรหัสผ่าน'></Input>
+                </div>
+                <div className='reg-button'>
+                    <Button style={{fontSize: 25,width: 200,height:50,fontFamily:'Mitr'}} type='primary'>สร้างบัญชี</Button>
+                </div>
             </div>
             </ConfigProvider>
         </div>
