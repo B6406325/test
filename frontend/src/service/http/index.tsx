@@ -20,7 +20,7 @@ async function CreateMember(data: MemberInterface) {
 }
 
 async function ListUsers(data: MemberInterface) {
-  console.log("Data sent to ListUsers:", data.Username);
+  console.log("Data sent to ListUsers:", data.Email);
   const requestOptions = {
     method: "GET",
     headers: {
@@ -28,7 +28,7 @@ async function ListUsers(data: MemberInterface) {
     },
   };
   let res = await fetch(
-    `${apiUrl}/member/${data.Username}/${data.Password}`,
+    `${apiUrl}/member/${data.Email}/${data.Password}`,
     requestOptions
   )
     .then((response) => response.json())

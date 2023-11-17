@@ -22,19 +22,19 @@ func CreateMember(c *gin.Context) {
 }
 
 func GetMember(c *gin.Context) {
-	username := c.Param("username")
+	email := c.Param("email")
 	password := c.Param("password")
 	var user entity.Member
 	fmt.Println(password)
-	err := entity.DB().Raw("SELECT username, password, id FROM members WHERE username = ?", username).Scan(&user).Error
+	err := entity.DB().Raw("SELECT email, password, id FROM members WHERE email = ?", email).Scan(&user).Error
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	} else {
-		if username != user.Username {
-			fmt.Println(username)
-			fmt.Println(user.Username)
-			c.JSON(http.StatusBadRequest, gin.H{"error": "User Not found"})
+		if email != user.Email {
+			fmt.Println(email)
+			fmt.Println(user.Email)
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Email Not found"})
 			return
 		} else if password != user.Password {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "invalid password"})
@@ -43,8 +43,8 @@ func GetMember(c *gin.Context) {
 			return
 		} else {
 			if user.Status == "admin" {
-				fmt.Println(username)
-				fmt.Println(user.Username)
+				fmt.Println(email)
+				fmt.Println(user.Email)
 				c.JSON(http.StatusBadRequest, gin.H{"error": "Status admin"})
 				return
 			} else {

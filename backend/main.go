@@ -13,7 +13,7 @@ func main() {
 	r := gin.Default()
 	r.Use(CORSMiddleware())
 	r.POST("/member", controller.CreateMember)
-	r.GET("/member/:username/:password", controller.GetMember)
+	r.GET("/member/:email/:password", controller.GetMember)
 	r.Run("localhost: " + PORT)
 }
 

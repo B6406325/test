@@ -8,8 +8,8 @@ export default function Login(){
     const navigate = useNavigate();
     const onFinish = async (values: MemberInterface) => {
         let res = await ListUsers(values);
-        if (res.message==="User Not found") {
-            message.error("User not found. Please check your credentials.");
+        if (res.message==="Email Not found") {
+            message.error("Email not found. Please check your credentials.");
         } else if (res.message==="invalid password") {
             message.error("Invalid password. Please try again.");
         } else if (res.message === "Status admin"){
@@ -48,9 +48,7 @@ export default function Login(){
             }}>
             <div className='body-login'>
                 <div className='body-login-text'>เข้าสู่ระบบ</div>
-                <Form
-                    onFinish={onFinish}
-                >
+                <Form onFinish={onFinish}>
                     <div className='input-email'>
                         <Form.Item name="Email">
                             <Input style={{width:670,height:69,fontSize:25,fontFamily:'Mitr'}} placeholder='อีเมล'></Input>
