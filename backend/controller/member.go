@@ -24,30 +24,27 @@ func CreateMember(c *gin.Context) {
 func GetMember(c *gin.Context) {
 	email := c.Param("email")
 	password := c.Param("password")
+	
 	var user entity.Member
-	fmt.Println(password)
-	err := entity.DB().Raw("SELECT email, password, id FROM members WHERE email = ?", email).Scan(&user).Error
+	fmt.Println(user.Status)
+	err := entity.DB().Raw("SELECT email, password, status FROM members WHERE email = ?", email).Scan(&user).Error
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	} else {
 		if email != user.Email {
-			fmt.Println(email)
-			fmt.Println(user.Email)
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Email Not found"})
 			return
-		} else if password != user.Password {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "invalid password"})
-			fmt.Println(password)
-			fmt.Println(user.Password)
-			return
 		} else {
-			if user.Status == "admin" {
-				fmt.Println(email)
-				fmt.Println(user.Email)
-				c.JSON(http.StatusBadRequest, gin.H{"error": "Status admin"})
+			if password != user.Password {
+				c.JSON(http.StatusBadRequest, gin.H{"error": "invalid password"})
 				return
 			} else {
+				if (user.Status == "admin") {
+					fmt.Println("admin")
+					c.JSON(http.StatusOK, gin.H{"data": "Status admin"})
+					return
+				}
 				c.JSON(http.StatusOK, gin.H{"data": user})
 				return
 			}

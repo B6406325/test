@@ -9,11 +9,11 @@ export default function Login(){
     const navigate = useNavigate();
     const onFinish = async (values: MemberInterface) => {
         let res = await ListUsers(values);
-        if (res.message==="ไม่พบอีเมลดังกล่าว") {
-            message.error("Email not found. Please check your credentials.");
-        } else if (res.message==="invalid password") {
+        if (res.message==="Email Not found") {
+            message.error("ไม่พบอีเมลดังกล่าว");
+        }if (res.message==="invalid password") {
             message.error("รหัสผ่านผิด โปรดลองอีกครั้ง");
-        } else if (res.message === "Status admin"){
+        }if (res.message === "Status admin"){
             message.success("สวัสดี แอดมิน");
             setTimeout(function () {
               navigate("/admin");
@@ -25,13 +25,12 @@ export default function Login(){
                 setTimeout(function () {
                   navigate("/content");
               }, 2000);
-            } else {
-                // message.error("An error occurred. Please try again.");
-                message.error(`error, Status: ${res.status}`);
             }
         }
+        console.log(res.message);
+        console.log(values);
     }
-
+    
     return(
         <div className='web-login'>
             <ConfigProvider theme={{
@@ -51,12 +50,12 @@ export default function Login(){
                 <div className='body-login-text'>เข้าสู่ระบบ</div>
                 <Form onFinish={onFinish}>
                     <div className='input-email'>
-                        <Form.Item name="Email">
+                        <Form.Item name="Email" rules={[{required:true, message:"โปรดใส่อีเมล"}]}>
                             <Input style={{width:670,height:69,fontSize:25,fontFamily:'Mitr'}} placeholder='อีเมล'></Input>
                         </Form.Item>
                     </div>
                     <div className='input-password'>
-                        <Form.Item name="Password">
+                        <Form.Item name="Password" rules={[{required:true, message:"โปรดใส่รหัสผ่าน"}]}>
                             <Input style={{width:670,height:69,fontSize:25,fontFamily:'Mitr'}} placeholder='รหัสผ่าน' type='password'></Input>
                         </Form.Item>
                     </div>
