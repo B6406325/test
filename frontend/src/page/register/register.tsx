@@ -19,22 +19,25 @@ export default function Register(){
             }, 2000);
         }
     }
+    function onClick(){
+        navigate("/");
+    }
 
     return(
-        <div className='web-reg'>
-            <ConfigProvider theme={{
-                components:{
-                    Button:{
-                        colorPrimary: '#F5CE00',
-                        algorithm: true,
-                        primaryColor: '#000000',
-                    },
-                    Input:{
-                        colorPrimary: '#F5CE00',
-                        algorithm: true,
-                    },
+        <ConfigProvider theme={{
+            components:{
+                Button:{
+                    colorPrimary: '#F5CE00',
+                    algorithm: true,
+                    primaryColor: '#000000',
                 },
-            }}>
+                Input:{
+                    colorPrimary: '#F5CE00',
+                    algorithm: true,
+                },
+            },
+        }}>
+        <div className='web-reg'>
             <div className='body-reg'>
                 <div className='body-reg-text'>สร้างบัญชีผู้ใช้งาน</div>
                 <Form onFinish={onFinish}>
@@ -79,7 +82,8 @@ export default function Register(){
                     </div>
                 </Form>
             </div>
-            </ConfigProvider>
         </div>
+        <div className='reg-back-button'><Button style={{fontSize: 25,width: 200,height:50,fontFamily:'Mitr'}} type='primary' onClick={onClick}>กลับไปล็อกอิน</Button></div>
+        </ConfigProvider>
     );
 }
