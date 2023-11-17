@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/B6406325/test/controller"
 	"github.com/B6406325/test/entity"
 	"github.com/gin-gonic/gin"
 )
@@ -11,7 +12,7 @@ func main() {
 	entity.SetupDatabase()
 	r := gin.Default()
 	r.Use(CORSMiddleware())
-	
+	r.POST("/member", controller.CreateMember)
 	r.Run("localhost: " + PORT)
 }
 

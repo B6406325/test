@@ -18,3 +18,7 @@ async function CreateMember(data: MemberInterface) {
         });
       return res;
 }
+
+export{
+    CreateMember,
+}
