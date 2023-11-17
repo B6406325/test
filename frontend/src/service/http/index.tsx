@@ -19,6 +19,30 @@ async function CreateMember(data: MemberInterface) {
       return res;
 }
 
+async function ListUsers(data: MemberInterface) {
+  console.log("Data sent to ListUsers:", data.Username);
+  const requestOptions = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  let res = await fetch(
+    `${apiUrl}/member/${data.Username}/${data.Password}`,
+    requestOptions
+  )
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return { status: true, message: res.data };
+      } else {
+        return { status: false, message: res.error };
+      }
+    });
+  console.log(res);
+  return res;
+}
+
 export{
     CreateMember,
 }
