@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './admin.css'
 import { Button, ConfigProvider, Layout, Menu, MenuProps, theme } from 'antd';
 import { Content, Header } from 'antd/es/layout/layout';
-import { BrowserRouter, Link, Route, Routes, useNavigate} from 'react-router-dom';
+import { Route, Routes, useNavigate} from 'react-router-dom';
 import User from './user/user';
 
 const { Sider } = Layout;
