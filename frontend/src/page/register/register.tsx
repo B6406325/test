@@ -3,7 +3,7 @@ import { ConfigProvider , Button , Input, Form , message} from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { MemberInterface } from '../../interface/Idata';
 import { useState } from 'react';
-import { CreateMember } from '../../service/http/ServiceLogin';
+import { CreateMember } from '../../service/http';
 
 export default function Register(){
     const navigate = useNavigate();

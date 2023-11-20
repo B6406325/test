@@ -81,10 +81,28 @@ async function DeleteUserByID(id: Number | undefined) {
 
   return res;
 }
+async function GetUserById(id: Number | undefined) {
+  const requestOptions = {
+    method: "GET"
+  };
+
+  let res = await fetch(`${apiUrl}/user/${id}`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data;
+      } else {
+        return false;
+      }
+    });
+
+  return res;
+}
 
 export{
     CreateMember,
     ListUsers,
     GetMember,
     DeleteUserByID,
+    GetUserById,
 }

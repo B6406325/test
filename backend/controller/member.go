@@ -70,4 +70,14 @@ func GetMember(c *gin.Context) {
 	}
 }
 
+func GetUserById(c *gin.Context) {
+	var user entity.Member
+	id := c.Param("id")
+	if err := entity.DB().Raw("Gender").Raw("SELECT * FROM members WHERE id = ?", id).Find(&user).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"data": user})
+}
+
 

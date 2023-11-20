@@ -7,12 +7,12 @@ import Movies from './page/admin/movie/Movie';
 import Payment from './page/admin/payment/Payment';
 import Content from './page/content/content';
 import User from './page/admin/user/user';
-
+import MovieEdit from './page/admin/movie/edit/movieEdit';
+import UserEdit from './page/admin/user/edit/editUser';
 export default function App() {
   return (
     <div className="App">
     <Router>
-    
       <Routes>
         <Route path='/' element={<Login/>}/>
         <Route path='/admin' element={<Admin/>}/>
@@ -21,8 +21,9 @@ export default function App() {
         <Route path='/register' element={<Register/>}/>
         <Route path='/content' element={<Content/>}/>
         <Route path='/user' element={<User/>}/>
+        <Route path='/user/edit/:id' element={<UserEdit/>}/>
+        <Route path='/movie/edit' element={<MovieEdit/>}/>
       </Routes>
-    
     </Router>
     </div>
   );
