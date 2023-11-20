@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './admin.css'
-import { Button, ConfigProvider, Layout, Menu, MenuProps, theme } from 'antd';
+import { Button, ConfigProvider, Layout, Menu, theme } from 'antd';
 import { Content, Header } from 'antd/es/layout/layout';
-import { Route, Routes, useNavigate} from 'react-router-dom';
-import User from './user/user';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import User from '../user/user';
 
 const { Sider } = Layout;
 
@@ -11,12 +11,11 @@ const { Sider } = Layout;
 export default function Admin(){
   const navigate = useNavigate();
   function clickMovie(){
-    navigate("/movie");
+    navigate('/movies');
   }
   function clickPayment(){
-    navigate("/payment");
+    navigate('/payment');
   }
-
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -42,7 +41,7 @@ export default function Admin(){
           </Menu>
         </Sider>
         <Layout>
-          <Header style={{height: 100,marginTop:10,marginLeft:10,marginRight:10,backgroundColor:"#FFFFFF"}}/>
+          <Header style={{height: 100,marginTop:10,marginLeft:10,marginRight:10,backgroundColor:"#FFFFFF"}}></Header>
           <Content style={{ height: 100,marginTop:10,marginLeft:10,marginRight:10 }}>
           <div
               style={{
