@@ -3,7 +3,7 @@ import { MemberInterface } from "../../../interface/Idata"
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Button, Modal, message } from "antd";
-import { DeleteOutlined } from "@ant-design/icons";
+import { DeleteOutlined , EditOutlined} from "@ant-design/icons";
 import { GetMember } from "../../../service/http";
 import { DeleteUserByID } from "../../../service/http";
 
@@ -36,7 +36,7 @@ export default function User(){
             key: "manage",
             render: (text, record, index) => (
                 <div>
-                <Button shape="circle" onClick={() =>  navigate(`/user/edit/${record.ID}`)}
+                <Button shape="circle" onClick={() =>  navigate(`/user/edit/${record.ID}`)} icon={<EditOutlined />}
                 size={"large"}
                 />
                 <Button shape="circle" 
