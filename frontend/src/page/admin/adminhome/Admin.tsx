@@ -32,6 +32,9 @@ export default function Admin(){
       <Layout style={{height: "100vh",backgroundColor:'#D9D9D9'}}>
         <Sider width={300}>
           <Menu style={{height:"100vh",backgroundColor:'#000000'}} mode='inline'>
+              <div className='admin-user'>
+                <Button style={{fontSize: 25,width: 200,height:50,fontFamily:'Mitr'}} type='primary' >User</Button>
+              </div>
               <div className='admin-movie'>
                 <Button style={{fontSize: 25,width: 200,height:50,fontFamily:'Mitr'}} type='primary' onClick={clickMovie}>Movies</Button>
               </div>

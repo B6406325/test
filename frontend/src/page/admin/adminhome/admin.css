@@ -1,11 +1,17 @@
 .admin-movie{
     justify-content: center;
     display: flex;
-    margin-top: 35vh;
+    margin-top: 10vh;
 }
 
 .admin-payment{
     justify-content: center;
     display: flex;
-    margin-top: 15vh;
+    margin-top: 10vh;
+}
+
+.admin-user{
+    justify-content: center;
+    display: flex;
+    margin-top: 30vh;
 }
