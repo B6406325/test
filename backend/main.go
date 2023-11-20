@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-const PORT = "8080"
+const PORT = "8000"
 
 func main() {
 	entity.SetupDatabase()
@@ -14,6 +14,7 @@ func main() {
 	r.Use(CORSMiddleware())
 	r.POST("/member", controller.CreateMember)
 	r.GET("/member/:email/:password", controller.GetMember)
+	r.GET("/users", controller.GetUserByStatus)
 	r.Run("localhost: " + PORT)
 }
 

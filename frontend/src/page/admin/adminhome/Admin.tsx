@@ -41,7 +41,9 @@ export default function Admin(){
           </Menu>
         </Sider>
         <Layout>
-          <Header style={{height: 100,marginTop:10,marginLeft:10,marginRight:10,backgroundColor:"#FFFFFF"}}></Header>
+          <Header style={{height: 100,marginTop:10,marginLeft:10,marginRight:10,backgroundColor:"#FFFFFF",fontSize:50,fontFamily:'Mitr'}}>
+            <div style={{marginTop:18}}>ADMIN HOME</div>
+          </Header>
           <Content style={{ height: 100,marginTop:10,marginLeft:10,marginRight:10 }}>
           <div
               style={{

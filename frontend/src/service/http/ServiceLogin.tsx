@@ -1,5 +1,5 @@
 import { MemberInterface } from "../../interface/Idata";
-const apiUrl = "http://localhost:8080";
+const apiUrl = "http://localhost:8000";
 
 async function CreateMember(data: MemberInterface) {
     const requestOptions = {
@@ -43,7 +43,28 @@ async function ListUsers(data: MemberInterface) {
   return res;
 }
 
+async function GetMember() {
+  const requestOptions = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  let res = await fetch(`${apiUrl}/users`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data;
+      } else {
+        return false;
+      }
+    });
+
+  return res;
+}
 export{
     CreateMember,
     ListUsers,
+    GetMember,
 }
