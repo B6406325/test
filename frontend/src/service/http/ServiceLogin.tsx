@@ -63,8 +63,28 @@ async function GetMember() {
 
   return res;
 }
+
+async function DeleteUserByID(id: Number | undefined) {
+  const requestOptions = {
+    method: "DELETE"
+  };
+
+  let res = await fetch(`${apiUrl}/users/${id}`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data;
+      } else {
+        return false;
+      }
+    });
+
+  return res;
+}
+
 export{
     CreateMember,
     ListUsers,
     GetMember,
+    DeleteUserByID,
 }

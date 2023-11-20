@@ -15,6 +15,7 @@ func main() {
 	r.POST("/member", controller.CreateMember)
 	r.GET("/member/:email/:password", controller.GetMember)
 	r.GET("/users", controller.GetUserByStatus)
+	r.DELETE("/users/:id", controller.DeleteUser)
 	r.Run("localhost: " + PORT)
 }
 

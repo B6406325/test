@@ -16,6 +16,9 @@ export default function Admin(){
   function clickPayment(){
     navigate('/payment');
   }
+  function clickBack(){
+    navigate('/');
+  }
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -40,6 +43,9 @@ export default function Admin(){
               </div>
               <div className='admin-payment'>
                 <Button style={{fontSize: 25,width: 200,height:50,fontFamily:'Mitr'}} type='primary' onClick={clickPayment}>Payment</Button>
+              </div>
+              <div className='admin-back'>
+                <Button style={{fontSize: 25,width: 150,height:50,fontFamily:'Mitr'}} type='primary' onClick={clickBack}>LogOut</Button>
               </div>
           </Menu>
         </Sider>
