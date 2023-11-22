@@ -73,11 +73,31 @@ func GetMember(c *gin.Context) {
 func GetUserById(c *gin.Context) {
 	var user entity.Member
 	id := c.Param("id")
-	if err := entity.DB().Raw("Gender").Raw("SELECT * FROM members WHERE id = ?", id).Find(&user).Error; err != nil {
+	if err := entity.DB().Raw("SELECT * FROM members WHERE id = ?", id).Find(&user).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 	c.JSON(http.StatusOK, gin.H{"data": user})
 }
 
+func UpdateUser(c *gin.Context) {
+	var user entity.Member
+	var result entity.Member
+
+	if err := c.ShouldBindJSON(&user); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	// ค้นหา user ด้วย id
+	if tx := entity.DB().Where("id = ?", user.ID).First(&result); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "user not found"})
+		return
+	}
+
+	if err := entity.DB().Save(&user).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"data": user})
+}
 

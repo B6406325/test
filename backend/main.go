@@ -16,7 +16,14 @@ func main() {
 	r.GET("/member/:email/:password", controller.GetMember)
 	r.GET("/users", controller.GetUserByStatus)
 	r.GET("/user/:id", controller.GetUserById)
+	r.PATCH("/users", controller.UpdateUser)
 	r.DELETE("/users/:id", controller.DeleteUser)
+	r.GET("/movie", controller.ListMovie)
+	r.GET("/movie/:id", controller.GetMovie)
+	r.DELETE("movie/:id", controller.DeleteMovie)
+	r.PATCH("movie", controller.UpdateMovie)
+	r.POST("/movie", controller.CreateMovie)
+	r.GET("/categories", controller.ListCategories)
 	r.Run("localhost: " + PORT)
 }
 
