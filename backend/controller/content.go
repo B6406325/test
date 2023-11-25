@@ -95,7 +95,7 @@ func UpdateMovie(c *gin.Context) {
 
 func ListMovie(c *gin.Context) {
 	var movie []entity.Content
-	if err := entity.DB().Raw("SELECT * FROM Contents").Scan(&movie).Error; err != nil {
+	if err := entity.DB().Preload("Categories").Raw("SELECT * FROM Contents").Scan(&movie).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}

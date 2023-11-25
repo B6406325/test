@@ -7,8 +7,10 @@ import Movies from './page/admin/movie/Movie';
 import Payment from './page/admin/payment/Payment';
 import Content from './page/content/content';
 import User from './page/admin/user/user';
-import MovieEdit from './page/admin/movie/edit/movieEdit';
+import MovieEdit from './page/admin/movie/edit/movieDash';
 import UserEdit from './page/admin/user/edit/editUser';
+import MovieDash from './page/admin/movie/edit/movieDash';
+import CreateMovie from './page/admin/movie/create/createMovie';
 export default function App() {
   return (
     <div className="App">
@@ -22,7 +24,9 @@ export default function App() {
         <Route path='/content' element={<Content/>}/>
         <Route path='/user' element={<User/>}/>
         <Route path='/user/edit/:id' element={<UserEdit/>}/>
+        <Route path='/movie/dash' element={<MovieDash/>}/>
         <Route path='/movie/edit' element={<MovieEdit/>}/>
+        <Route path='/movie/create' element={<CreateMovie/>}/>
       </Routes>
     </Router>
     </div>

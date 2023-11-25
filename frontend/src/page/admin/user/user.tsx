@@ -106,7 +106,7 @@ export default function User(){
         <>
         <Table rowKey={"Id"} columns={columns} dataSource={users}/>
         <Modal
-        title="ลบข้อมูล ?"
+        title="ลบข้อมูล?"
         open={open}
         onOk={handleOk}
         confirmLoading={confirmLoading}

@@ -1,7 +1,8 @@
 import { Button, ConfigProvider, Layout, Menu, theme } from 'antd';
 import { Content, Header } from 'antd/es/layout/layout';
-import { Route, Routes, useNavigate } from 'react-router-dom';
-import MovieEdit from './edit/movieEdit';
+import { Link, Route, Routes, useNavigate } from 'react-router-dom';
+import MovieDash from './edit/movieDash';
+import { PlusOutlined} from "@ant-design/icons";
 const { Sider } = Layout;
 
 export default function Movies(){
@@ -48,7 +49,14 @@ export default function Movies(){
             </Sider>
             <Layout>
               <Header style={{height: 100,marginTop:10,marginLeft:10,marginRight:10,backgroundColor:"#FFFFFF",fontSize:50,fontFamily:'Mitr'}}>
-                <div style={{marginTop:18}}>Movie Management</div>
+                <div style={{marginTop:15}}>Movie Management
+                <Link style={{marginLeft:50}} to="/movie/create">
+              <Button type="primary" icon={<PlusOutlined />}>
+                เพิ่มข้อมูล
+              </Button>
+                </Link>
+                </div>
+                
               </Header>
               <Content style={{ height: 100,marginTop:10,marginLeft:10,marginRight:10 }}>
               <div
@@ -59,7 +67,7 @@ export default function Movies(){
                   }}
                 >
                   <Routes>
-                    <Route path='/' element={<MovieEdit/>}/>
+                    <Route path='/' element={<MovieDash/>}/>
                   </Routes>
                 </div>
               </Content>
